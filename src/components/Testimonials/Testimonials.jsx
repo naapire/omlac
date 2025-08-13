@@ -1,5 +1,4 @@
 import React from "react";
-import Slider from "react-slick";
 
 const TestimonialData = [
   {
@@ -23,51 +22,12 @@ const TestimonialData = [
   {
     id: 5,
     name: "Vida KoKoi",
-    text: "I’ve used several importers, but Omlac is by far the most efficient. The team is responsive and trustworthy.",
+    text: "I've used several importers, but Omlac is by far the most efficient. The team is responsive and trustworthy.",
     img: "https://picsum.photos/103/103",
   },
 ];
 
-
 const Testimonials = () => {
-  var settings = {
-    dots: true,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-    pauseOnHover: true,
-    pauseOnFocus: true,
-    responsive: [
-      {
-        breakpoint: 10000,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   return (
     <div className="py-10 mb-10">
       <div className="container">
@@ -87,35 +47,33 @@ const Testimonials = () => {
 
         {/* Testimonial cards */}
         <div data-aos="zoom-in">
-          <Slider {...settings}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {TestimonialData.map((data) => (
-              <div className="my-6">
-                <div
-                  key={data.id}
-                  className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative"
-                >
-                  <div className="mb-4">
-                    <img
-                      src={data.img}
-                      alt=""
-                      className="rounded-full w-20 h-20"
-                    />
-                  </div>
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="space-y-3">
-                      <p className="text-xs text-gray-500">{data.text}</p>
-                      <h1 className="text-xl font-bold text-black/80 dark:text-light">
-                        {data.name}
-                      </h1>
-                    </div>
-                  </div>
-                  <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">
-                    ,,
-                  </p>
+              <div
+                key={data.id}
+                className="flex flex-col gap-4 shadow-lg py-8 px-6 rounded-xl dark:bg-gray-800 bg-primary/10 relative hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="mb-4">
+                  <img
+                    src={data.img}
+                    alt=""
+                    className="rounded-full w-20 h-20 mx-auto"
+                  />
                 </div>
+                <div className="flex flex-col items-center gap-4">
+                  <div className="space-y-3 text-center">
+                    <p className="text-xs text-gray-500 leading-relaxed">{data.text}</p>
+                    <h1 className="text-xl font-bold text-black/80 dark:text-light">
+                      {data.name}
+                    </h1>
+                  </div>
+                </div>
+                <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">
+                  ,,
+                </p>
               </div>
             ))}
-          </Slider>
+          </div>
         </div>
       </div>
     </div>
